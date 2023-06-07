@@ -21,60 +21,103 @@ body {
       "seven eight nine multiply"
       "allClear point zero divide"
       "result result result result";
-    #screen {
-      grid-area: "screen";
+    #display {
+      grid-area: screen;
       border: 2px solid black;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      font-size: 3em;
     }
     #one {
-      grid-area: "one";
+      grid-area: one;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #two {
-      grid-area: "two";
+      grid-area: two;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #three {
-      grid-area: "three";
+      grid-area: three;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #plus {
-      grid-area: "plus";
+      grid-area: plus;
+      border: 2px solid black;
+      background-color: crimson;
+      border-radius: 5px;
     }
     #four {
-      grid-area: "four";
+      grid-area: four;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #five {
-      grid-area: "five";
+      grid-area: five;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #six {
-      grid-area: "six";
+      grid-area: six;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #minus {
-      grid-area: "minus";
+      grid-area: minus;
+      border: 2px solid black;
+      background-color: crimson;
+      border-radius: 5px;
     }
     #seven {
-      grid-area: "seven";
+      grid-area: seven;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #eight {
-      grid-area: "eight";
+      grid-area: eight;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #nine {
-      grid-area: "nine";
+      grid-area: nine;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #multiply {
-      grid-area: "multiply";
+      grid-area: multiply;
+      border: 2px solid black;
+      background-color: crimson;
+      border-radius: 5px;
     }
     #allClear {
-      grid-area: "allClear";
+      grid-area: allClear;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #point {
-      grid-area: "point";
+      grid-area: point;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #zero {
-      grid-area: "zero";
+      grid-area: zero;
+      border: 2px solid black;
+      border-radius: 5px;
     }
     #divide {
-      grid-area: "divide";
+      grid-area: divide;
+      border: 2px solid black;
+      background-color: crimson;
+      border-radius: 5px;
     }
     #result {
-      grid-area: "result";
+      grid-area: result;
+      border: 2px solid black;
+      background-color: skyblue;
+      border-radius: 5px;
     }
   }
 }
