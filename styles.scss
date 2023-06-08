@@ -14,21 +14,37 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 80px 80px repeat(5, 1fr);
     grid-template-areas:
-      "screen screen screen screen"
+      "mscreen mscreen mscreen mscreen"
       "screen screen screen screen"
       "one two three plus"
       "four five six minus"
       "seven eight nine multiply"
       "allClear point zero divide"
       "result result result result";
+
+    #minidisplay {
+      grid-area: mscreen;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding-right: 5px;
+      letter-spacing: 1px;
+      font-size: 1.5em;
+      color: gray;
+    }
+
     #display {
       grid-area: screen;
-      border: 2px solid black;
+      border-bottom: 5px solid black;
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
       padding-right: 5px;
       font-size: 3em;
+    }
+
+    .grid {
+      font-size: 1.5em;
     }
     #one {
       grid-area: one;
@@ -97,6 +113,8 @@ body {
       grid-area: allClear;
       border: 2px solid black;
       border-radius: 5px;
+      background-color: gray;
+      font-weight: bold;
     }
     #point {
       grid-area: point;
@@ -119,6 +137,8 @@ body {
       border: 2px solid black;
       background-color: skyblue;
       border-radius: 5px;
+      font-weight: bold;
+      font-size: 2em;
     }
   }
 }

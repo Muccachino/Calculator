@@ -20,11 +20,27 @@ body #calculator {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 80px 80px repeat(5, 1fr);
-  grid-template-areas: "screen screen screen screen" "screen screen screen screen" "one two three plus" "four five six minus" "seven eight nine multiply" "allClear point zero divide" "result result result result";
+  grid-template-areas: "mscreen mscreen mscreen mscreen" "screen screen screen screen" "one two three plus" "four five six minus" "seven eight nine multiply" "allClear point zero divide" "result result result result";
+}
+body #calculator #minidisplay {
+  grid-area: mscreen;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 5px;
+  letter-spacing: 1px;
+  font-size: 1.5em;
+  color: gray;
 }
 body #calculator #display {
   grid-area: screen;
-  border: 2px solid black;
+  border-bottom: 5px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,6 +52,9 @@ body #calculator #display {
           justify-content: flex-end;
   padding-right: 5px;
   font-size: 3em;
+}
+body #calculator .grid {
+  font-size: 1.5em;
 }
 body #calculator #one {
   grid-area: one;
@@ -104,6 +123,8 @@ body #calculator #allClear {
   grid-area: allClear;
   border: 2px solid black;
   border-radius: 5px;
+  background-color: gray;
+  font-weight: bold;
 }
 body #calculator #point {
   grid-area: point;
@@ -126,4 +147,6 @@ body #calculator #result {
   border: 2px solid black;
   background-color: skyblue;
   border-radius: 5px;
+  font-weight: bold;
+  font-size: 2em;
 }/*# sourceMappingURL=styles.css.map */

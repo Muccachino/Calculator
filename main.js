@@ -1,45 +1,55 @@
 "use strict";
 
 const display = document.querySelector("#display");
+const minidisplay = document.querySelector("#minidisplay");
 const calculator = document.querySelector("#calculator");
 let firstNumber = 0;
 let secondNumber = 0;
 let resultNumber = 0;
 let numberArray1 = [];
 let numberArray2 = [];
+let miniNumberArray = [];
 let operator = "";
 
-const listenToKeys = () => {
+const listenToMouseClick = () => {
   calculator.addEventListener("click", (e) => {
     if (e.target.matches(".grid")) {
       let key = e.target;
       let action = key.dataset.action;
 
       if (!action) {
-        console.log("Ziffer geklickt");
-        console.log(key.dataset.value);
         if (operator === "") {
           firstNumber = showNumber1(key.dataset.value);
           display.innerHTML = firstNumber;
+          minidisplay.innerHTML = showCalculation(key.dataset.value);
+          secondNumber = 0;
         } else {
           secondNumber = showNumber2(key.dataset.value);
           display.innerHTML = secondNumber;
+          minidisplay.innerHTML = showCalculation(key.dataset.value);
         }
       }
 
       if (
         action === "+" ||
         action === "-" ||
-        action === "x" ||
+        action === "*" ||
         action === "/"
       ) {
-        console.log("Operator geklickt");
-        console.log(key.dataset.action);
         if (operator === "") {
-          operator = key.dataset.action;
+          if (secondNumber === 0) {
+            operator = key.dataset.action;
+            minidisplay.innerHTML = showCalculation(operator);
+          } else {
+            operator = key.dataset.action;
+            minidisplay.innerHTML = showCalculation(firstNumber);
+            minidisplay.innerHTML = showCalculation(operator);
+          }
         } else {
           calculation(firstNumber, secondNumber);
           operator = key.dataset.action;
+          miniNumberArray = [resultNumber];
+          minidisplay.innerHTML = showCalculation(operator);
           numberArray1 = [];
           numberArray2 = [];
           firstNumber = resultNumber;
@@ -48,21 +58,26 @@ const listenToKeys = () => {
       }
 
       if (action === ".") {
-        console.log("Dezimalpunkt geklickt");
         if (numberArray2.length == 0) {
           display.innerHTML = showNumber1(key.dataset.action);
+          minidisplay.innerHTML = showCalculation(key.dataset.action);
         } else {
           display.innerHTML = showNumber2(key.dataset.action);
+          minidisplay.innerHTML = showCalculation(key.dataset.action);
         }
       }
 
       if (action === "allClear") {
-        console.log("AC-Taste gedrückt");
         reset();
       }
 
       if (action === "=") {
         calculation(firstNumber, secondNumber);
+        firstNumber = resultNumber;
+        miniNumberArray = [];
+        numberArray1 = [];
+        numberArray2 = [];
+        operator = "";
       }
     }
   });
@@ -86,7 +101,7 @@ const calculation = (num1, num2) => {
   } else if (operator === "-") {
     resultNumber = num1 - num2;
     display.innerHTML = resultNumber;
-  } else if (operator === "x") {
+  } else if (operator === "*") {
     resultNumber = num1 * num2;
     display.innerHTML = resultNumber;
   } else if (operator === "/") {
@@ -95,11 +110,26 @@ const calculation = (num1, num2) => {
   }
 };
 
+const showCalculation = (number) => {
+  miniNumberArray.push(number);
+  let miniNumberOnDisplay = miniNumberArray.join("");
+  return miniNumberOnDisplay;
+};
+
 const reset = () => {
   numberArray1 = [];
   numberArray2 = [];
+  miniNumberArray = [];
   operator = "";
   display.innerHTML = 0;
+  minidisplay.innerHTML = "";
 };
 
-listenToKeys();
+listenToMouseClick();
+
+document.addEventListener("keydown", (event) => {
+  let keyName = event.key;
+  let keyCode = event.code;
+  console.log("Key name is " + keyName + " and key code is " + keyCode);
+  console.log(typeof keyName + " and " + typeof keyCode);
+});
