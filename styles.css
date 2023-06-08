@@ -14,12 +14,12 @@ body {
 }
 body #calculator {
   margin-top: 50px;
-  height: 700px;
-  width: 30vw;
+  height: 650px;
+  width: 25vw;
   border: 10px solid black;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: 80px 80px repeat(5, 1fr);
   grid-template-areas: "screen screen screen screen" "screen screen screen screen" "one two three plus" "four five six minus" "seven eight nine multiply" "allClear point zero divide" "result result result result";
 }
 body #calculator #display {

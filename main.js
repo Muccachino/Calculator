@@ -50,11 +50,16 @@ const listenToKeys = () => {
 
       if (action === ".") {
         console.log("Dezimalpunkt geklickt");
-        display.innerHTML = showNumber(key.dataset.action);
+        if (numberArray2.length == 0) {
+          display.innerHTML = showNumber1(key.dataset.action);
+        } else {
+          display.innerHTML = showNumber2(key.dataset.action);
+        }
       }
 
       if (action === "allClear") {
         console.log("AC-Taste gedrückt");
+        reset();
       }
 
       if (action === "=") {
@@ -66,19 +71,19 @@ const listenToKeys = () => {
 
 listenToKeys();
 
-const numberArray1 = [];
-const numberArray2 = [];
+let numberArray1 = [];
+let numberArray2 = [];
 let operator = "";
 
 const showNumber1 = (key) => {
   numberArray1.push(key);
-  let numberOnDisplay1 = parseFloat(numberArray1.join(""));
-  return numberOnDisplay1;
+  let numberOnDisplay1 = numberArray1.join("");
+  return parseFloat(numberOnDisplay1);
 };
 const showNumber2 = (key) => {
   numberArray2.push(key);
-  let numberOnDisplay2 = parseFloat(numberArray2.join(""));
-  return numberOnDisplay2;
+  let numberOnDisplay2 = numberArray2.join("");
+  return parseFloat(numberOnDisplay2);
 };
 
 const calculation = (num1, num2) => {
@@ -91,4 +96,11 @@ const calculation = (num1, num2) => {
   } else if (operator === "/") {
     display.innerHTML = num1 / num2;
   }
+};
+
+const reset = () => {
+  numberArray1 = [];
+  numberArray2 = [];
+  operator = "";
+  display.innerHTML = 0;
 };
