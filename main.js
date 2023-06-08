@@ -174,16 +174,16 @@ const showNumber2 = (key) => {
 
 const calculation = (num1, num2) => {
   if (operator === "+") {
-    resultNumber = num1 + num2;
+    resultNumber = Math.round((num1 + num2 + Number.EPSILON) * 100) / 100;
     display.innerHTML = resultNumber;
   } else if (operator === "-") {
-    resultNumber = num1 - num2;
+    resultNumber = Math.round((num1 - num2 + Number.EPSILON) * 100) / 100;
     display.innerHTML = resultNumber;
   } else if (operator === "*") {
-    resultNumber = num1 * num2;
+    resultNumber = Math.round((num1 * num2 + Number.EPSILON) * 100) / 100;
     display.innerHTML = resultNumber;
   } else if (operator === "/") {
-    resultNumber = num1 / num2;
+    resultNumber = Math.round((num1 / num2 + Number.EPSILON) * 100) / 100;
     display.innerHTML = resultNumber;
   }
 };
@@ -198,6 +198,9 @@ const reset = () => {
   numberArray1 = [];
   numberArray2 = [];
   miniNumberArray = [];
+  firstNumber = 0;
+  secondNumber = 0;
+  resultNumber = 0;
   operator = "";
   display.innerHTML = 0;
   minidisplay.innerHTML = "";
