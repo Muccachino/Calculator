@@ -20,7 +20,7 @@ body #calculator {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 80px 80px repeat(5, 1fr);
-  grid-template-areas: "mscreen mscreen mscreen mscreen" "screen screen screen screen" "one two three plus" "four five six minus" "seven eight nine multiply" "allClear point zero divide" "result result result result";
+  grid-template-areas: "mscreen mscreen mscreen mscreen" "screen screen screen screen" "seven eight nine plus" "four five six minus" "one two three multiply" "allClear point zero divide" "result result result result";
 }
 body #calculator #minidisplay {
   grid-area: mscreen;

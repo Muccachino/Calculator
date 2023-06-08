@@ -83,6 +83,84 @@ const listenToMouseClick = () => {
   });
 };
 
+document.addEventListener("keydown", (event) => {
+  let keyboard = event.key;
+
+  if (
+    keyboard === "1" ||
+    keyboard === "2" ||
+    keyboard === "3" ||
+    keyboard === "4" ||
+    keyboard === "5" ||
+    keyboard === "6" ||
+    keyboard === "7" ||
+    keyboard === "8" ||
+    keyboard === "9" ||
+    keyboard === "0"
+  ) {
+    if (operator === "") {
+      firstNumber = showNumber1(keyboard);
+      display.innerHTML = firstNumber;
+      minidisplay.innerHTML = showCalculation(keyboard);
+      secondNumber = 0;
+    } else {
+      secondNumber = showNumber2(keyboard);
+      display.innerHTML = secondNumber;
+      minidisplay.innerHTML = showCalculation(keyboard);
+    }
+  }
+
+  if (
+    keyboard === "+" ||
+    keyboard === "-" ||
+    keyboard === "*" ||
+    keyboard === "/"
+  ) {
+    if (operator === "") {
+      if (secondNumber === 0) {
+        operator = keyboard;
+        minidisplay.innerHTML = showCalculation(operator);
+      } else {
+        operator = keyboard;
+        minidisplay.innerHTML = showCalculation(firstNumber);
+        minidisplay.innerHTML = showCalculation(operator);
+      }
+    } else {
+      calculation(firstNumber, secondNumber);
+      operator = keyboard;
+      miniNumberArray = [resultNumber];
+      minidisplay.innerHTML = showCalculation(operator);
+      numberArray1 = [];
+      numberArray2 = [];
+      firstNumber = resultNumber;
+      secondNumber = 0;
+    }
+  }
+
+  if (keyboard === ",") {
+    if (numberArray2.length == 0) {
+      display.innerHTML = showNumber1(".");
+      minidisplay.innerHTML = showCalculation(".");
+    } else {
+      display.innerHTML = showNumber2(".");
+      minidisplay.innerHTML = showCalculation(".");
+    }
+  }
+
+  if (keyboard === "Delete") {
+    reset();
+  }
+
+  if (keyboard === "Enter") {
+    calculation(firstNumber, secondNumber);
+    firstNumber = resultNumber;
+    miniNumberArray = [];
+    numberArray1 = [];
+    numberArray2 = [];
+    operator = "";
+  }
+});
+
 const showNumber1 = (key) => {
   numberArray1.push(key);
   let numberOnDisplay1 = numberArray1.join("");
