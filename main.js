@@ -137,7 +137,7 @@ document.addEventListener("keydown", (event) => {
     }
   }
 
-  if (keyboard === ",") {
+  if (keyboard === "," || keyboard === ".") {
     if (numberArray2.length == 0) {
       display.innerHTML = showNumber1(".");
       minidisplay.innerHTML = showCalculation(".");
@@ -172,6 +172,12 @@ const showNumber2 = (key) => {
   return parseFloat(numberOnDisplay2);
 };
 
+const showCalculation = (number) => {
+  miniNumberArray.push(number);
+  let miniNumberOnDisplay = miniNumberArray.join("");
+  return miniNumberOnDisplay;
+};
+
 const calculation = (num1, num2) => {
   if (operator === "+") {
     resultNumber = Math.round((num1 + num2 + Number.EPSILON) * 100) / 100;
@@ -188,12 +194,6 @@ const calculation = (num1, num2) => {
   }
 };
 
-const showCalculation = (number) => {
-  miniNumberArray.push(number);
-  let miniNumberOnDisplay = miniNumberArray.join("");
-  return miniNumberOnDisplay;
-};
-
 const reset = () => {
   numberArray1 = [];
   numberArray2 = [];
@@ -207,10 +207,3 @@ const reset = () => {
 };
 
 listenToMouseClick();
-
-document.addEventListener("keydown", (event) => {
-  let keyName = event.key;
-  let keyCode = event.code;
-  console.log("Key name is " + keyName + " and key code is " + keyCode);
-  console.log(typeof keyName + " and " + typeof keyCode);
-});

@@ -10,6 +10,8 @@ body {
     height: 650px;
     width: 25vw;
     border: 10px solid black;
+    border-radius: 10px;
+    background-color: whitesmoke;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 80px 80px repeat(5, 1fr);
@@ -45,100 +47,177 @@ body {
 
     .grid {
       font-size: 1.5em;
+      border: 2px solid gainsboro;
+      box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      margin: 5px;
     }
     #one {
       grid-area: one;
-      border: 2px solid black;
+      background-color: gainsboro;
       border-radius: 5px;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
+
     #two {
       grid-area: two;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #three {
       grid-area: three;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #plus {
       grid-area: plus;
-      border: 2px solid black;
       background-color: crimson;
+      border: 2px solid crimson;
+      font-weight: bold;
       border-radius: 5px;
+      &:hover {
+        background-color: rgb(180, 20, 60);
+        border: 2px solid rgb(180, 20, 60);
+      }
     }
     #four {
       grid-area: four;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #five {
       grid-area: five;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #six {
       grid-area: six;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #minus {
       grid-area: minus;
-      border: 2px solid black;
       background-color: crimson;
+      border: 2px solid crimson;
+      font-weight: bold;
       border-radius: 5px;
+      &:hover {
+        background-color: rgb(180, 20, 60);
+        border: 2px solid rgb(180, 20, 60);
+      }
     }
     #seven {
       grid-area: seven;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #eight {
       grid-area: eight;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #nine {
       grid-area: nine;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #multiply {
       grid-area: multiply;
-      border: 2px solid black;
       background-color: crimson;
+      border: 2px solid crimson;
+      font-weight: bold;
       border-radius: 5px;
+      &:hover {
+        background-color: rgb(180, 20, 60);
+        border: 2px solid rgb(180, 20, 60);
+      }
     }
     #allClear {
       grid-area: allClear;
-      border: 2px solid black;
       border-radius: 5px;
-      background-color: gray;
+      background-color: lightgray;
+      border: 2px solid lightgray;
       font-weight: bold;
+      &:hover {
+        background-color: rgb(180, 180, 180);
+        border: 2px solid rgb(180, 180, 180);
+      }
     }
     #point {
       grid-area: point;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      font-weight: bold;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #zero {
       grid-area: zero;
-      border: 2px solid black;
       border-radius: 5px;
+      background-color: gainsboro;
+      &:hover {
+        background-color: lightgray;
+        border: 2px solid lightgray;
+      }
     }
     #divide {
       grid-area: divide;
-      border: 2px solid black;
       background-color: crimson;
+      border: 2px solid crimson;
+      font-weight: bold;
       border-radius: 5px;
+      &:hover {
+        background-color: rgb(180, 20, 60);
+        border: 2px solid rgb(180, 20, 60);
+      }
     }
     #result {
       grid-area: result;
-      border: 2px solid black;
       background-color: skyblue;
+      border: 2px solid skyblue;
       border-radius: 5px;
       font-weight: bold;
       font-size: 2em;
+      &:hover {
+        background-color: rgb(100, 180, 235);
+        border: 2px solid rgb(100, 180, 235);
+      }
     }
   }
 }
