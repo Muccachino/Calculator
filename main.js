@@ -11,6 +11,7 @@ let numberArray2 = [];
 let miniNumberArray = [];
 let operator = "";
 
+// registers mouse clicks on buttons
 const listenToMouseClick = () => {
   calculator.addEventListener("click", (e) => {
     if (e.target.matches(".grid")) {
@@ -19,12 +20,12 @@ const listenToMouseClick = () => {
 
       if (!action) {
         if (operator === "") {
-          firstNumber = showNumber1(key.dataset.value);
+          firstNumber = showNumber1(key.dataset.value); //first number will be shown on display and saved for calculation
           display.innerHTML = firstNumber;
           minidisplay.innerHTML = showCalculation(key.dataset.value);
           secondNumber = 0;
         } else {
-          secondNumber = showNumber2(key.dataset.value);
+          secondNumber = showNumber2(key.dataset.value); //second number will be shown on display and saved for calculation
           display.innerHTML = secondNumber;
           minidisplay.innerHTML = showCalculation(key.dataset.value);
         }
@@ -38,14 +39,15 @@ const listenToMouseClick = () => {
       ) {
         if (operator === "") {
           if (secondNumber === 0) {
-            operator = key.dataset.action;
+            operator = key.dataset.action; //operator for calculation and shown on upper display
             minidisplay.innerHTML = showCalculation(operator);
           } else {
-            operator = key.dataset.action;
+            operator = key.dataset.action; //same as before, but for the case, when there already is a first result
             minidisplay.innerHTML = showCalculation(firstNumber);
             minidisplay.innerHTML = showCalculation(operator);
           }
         } else {
+          //does a first calculation, if more than one operator is clicked before the result button
           calculation(firstNumber, secondNumber);
           operator = key.dataset.action;
           miniNumberArray = [resultNumber];
@@ -58,6 +60,7 @@ const listenToMouseClick = () => {
       }
 
       if (action === ".") {
+        //registers a decimal point and checks if its for the first or second number
         if (numberArray2.length == 0) {
           display.innerHTML = showNumber1(key.dataset.action);
           minidisplay.innerHTML = showCalculation(key.dataset.action);
@@ -68,12 +71,14 @@ const listenToMouseClick = () => {
       }
 
       if (action === "allClear") {
+        //function for AC button to reset everything
         reset();
       }
 
       if (action === "=") {
+        //basic calculation for input numbers
         calculation(firstNumber, secondNumber);
-        firstNumber = resultNumber;
+        firstNumber = resultNumber; //puts result as first number, if consecutive calculations are done
         miniNumberArray = [];
         numberArray1 = [];
         numberArray2 = [];
@@ -84,6 +89,7 @@ const listenToMouseClick = () => {
 };
 
 document.addEventListener("keydown", (event) => {
+  //same as ListenToMouseClick but for keyboard input
   let keyboard = event.key;
 
   if (
@@ -162,25 +168,29 @@ document.addEventListener("keydown", (event) => {
 });
 
 const showNumber1 = (key) => {
+  //Saves the first input number
   numberArray1.push(key);
   let numberOnDisplay1 = numberArray1.join("");
   return parseFloat(numberOnDisplay1);
 };
 const showNumber2 = (key) => {
+  // Saves the second input number
   numberArray2.push(key);
   let numberOnDisplay2 = numberArray2.join("");
   return parseFloat(numberOnDisplay2);
 };
 
 const showCalculation = (number) => {
+  //Joins all inputs to be shown on the upper display
   miniNumberArray.push(number);
   let miniNumberOnDisplay = miniNumberArray.join("");
   return miniNumberOnDisplay;
 };
 
 const calculation = (num1, num2) => {
+  //Calculates both input numbers
   if (operator === "+") {
-    resultNumber = Math.round((num1 + num2 + Number.EPSILON) * 100) / 100;
+    resultNumber = Math.round((num1 + num2 + Number.EPSILON) * 100) / 100; //rounds numbers over two decimals
     display.innerHTML = resultNumber;
   } else if (operator === "-") {
     resultNumber = Math.round((num1 - num2 + Number.EPSILON) * 100) / 100;
@@ -195,6 +205,7 @@ const calculation = (num1, num2) => {
 };
 
 const reset = () => {
+  //resets whole calculator
   numberArray1 = [];
   numberArray2 = [];
   miniNumberArray = [];
