@@ -11,7 +11,7 @@ This function registers the mouse click and which button was clicked.
 Depending on the button, different actions follow.
 
 ```
-document.addEventListener("keydown,(event) =>{})
+listenToKeyboard()
 ```
 
 Does the same as the previous function but for keyboard inputs.
@@ -37,6 +37,13 @@ calculation()
 
 Basic function that calculates the input numbers based on the selected operator and rounds the result if necessary.
 Then it shows the result on the lower display.
+
+```
+resetAfterCalculation()
+```
+
+Resets the arrays that store the input numbers, and sets the result of the calculation as first number, so it can be used for
+consecutive calculations.
 
 ```
 reset()
